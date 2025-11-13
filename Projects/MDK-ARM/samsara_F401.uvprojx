@@ -335,7 +335,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32F401xc</Define>
+              <Define>USE_HAL_DRIVER,STM32F401xC</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\User;..\..\Drivers;..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;..\..\Drivers\CMSIS\Include;..\..\Drivers\STM32F4xx_HAL_Driver\Inc;..\..\Middlewares</IncludePath>
             </VariousControls>
@@ -405,6 +405,16 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\main.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Driver/BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\LED\led.c</FilePath>
             </File>
           </Files>
         </Group>

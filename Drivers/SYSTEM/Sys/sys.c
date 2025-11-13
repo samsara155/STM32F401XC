@@ -66,7 +66,6 @@ uint8_t SystemClock_Config(uint32_t plln, uint32_t pllm, uint32_t pllp, uint32_t
     {
         return 1;                                                /* 时钟初始化失败 */
     }
-	HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_4); //测试主频HSE 4分频6.25Mhz输出到PA8上
 	
 	/*STM32F401CCU6 微控制器具备 Flash 预读取（预取指）功能，这是通过其内置的 ART Accelerator（自适应实时加速器） 实现
 	__HAL_FLASH_PREFETCH_BUFFER_ENABLE();                     使能flash预取 
@@ -74,4 +73,28 @@ uint8_t SystemClock_Config(uint32_t plln, uint32_t pllm, uint32_t pllp, uint32_t
 	*/
 	return 0;
 }
+
+/**
+ * @brief       初始化MCO相关IO口, 并使能时钟
+ * @param       无
+ * @retval      无
+ */
+void RCC_MCO_GPIO_init(void)
+{
+	HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_4); //测试主频HSE 4分频6.25Mhz输出到PA8上
+	
+    GPIO_InitTypeDef gpio_init_struct;
+    
+    RCC_MCO_GPIO_CLK_ENABLE();                                 /* MCO时钟使能 */
+
+    gpio_init_struct.Pin = RCC_MCO_GPIO_PIN;                   /* MCO引脚 */
+    gpio_init_struct.Mode = GPIO_MODE_AF_PP;            	   /* 复用推挽输出 */
+    gpio_init_struct.Pull = GPIO_NOPULL;                       /* 上拉 */
+    gpio_init_struct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;        /* 高速 */
+	gpio_init_struct.Alternate = GPIO_AF0_MCO;				   /*设置复用为MCO功能*/
+    HAL_GPIO_Init(RCC_MCO_GPIO_PORT, &gpio_init_struct);       /* 初始化MCO引脚 */
+}
+
+
+
 

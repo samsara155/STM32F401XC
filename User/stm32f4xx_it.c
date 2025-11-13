@@ -34,10 +34,11 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
-
+/* External variables --------------------------------------------------------*/
+extern TIM_HandleTypeDef htim10;
+extern UART_HandleTypeDef g_uart1_handle;
 /******************************************************************************/
 /*            Cortex-M4 Processor Exceptions Handlers                         */
 /******************************************************************************/
@@ -164,3 +165,23 @@ void SysTick_Handler(void)
 /**
   * @}
   */
+
+
+
+void TIM1_UP_TIM10_IRQHandler(void)
+{
+  HAL_TIM_IRQHandler(&htim10);
+}
+/**
+  * @brief This function handles USART1 global interrupt.
+  */
+void USART1_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART1_IRQn 0 */
+
+  /* USER CODE END USART1_IRQn 0 */
+  HAL_UART_IRQHandler(&g_uart1_handle);
+  /* USER CODE BEGIN USART1_IRQn 1 */
+
+  /* USER CODE END USART1_IRQn 1 */
+}
