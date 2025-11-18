@@ -416,6 +416,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\Drivers\BSP\LED\led.c</FilePath>
             </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\SPI\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\LCD\lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\DMA\dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>GUI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\GUI\GUI.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

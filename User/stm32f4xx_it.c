@@ -39,6 +39,8 @@
 /* External variables --------------------------------------------------------*/
 extern TIM_HandleTypeDef htim10;
 extern UART_HandleTypeDef g_uart1_handle;
+extern DMA_HandleTypeDef dma_spi1;; 
+
 /******************************************************************************/
 /*            Cortex-M4 Processor Exceptions Handlers                         */
 /******************************************************************************/
@@ -177,11 +179,11 @@ void TIM1_UP_TIM10_IRQHandler(void)
   */
 void USART1_IRQHandler(void)
 {
-  /* USER CODE BEGIN USART1_IRQn 0 */
-
-  /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&g_uart1_handle);
-  /* USER CODE BEGIN USART1_IRQn 1 */
+}
 
-  /* USER CODE END USART1_IRQn 1 */
+void DMA2_Stream3_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(&dma_spi1);
+	
 }
