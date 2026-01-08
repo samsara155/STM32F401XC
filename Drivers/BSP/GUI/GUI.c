@@ -1,4 +1,3 @@
-
 #include "./BSP/LCD/lcd.h"
 #include "./BSP/GUI/font.h" 
 #include "./BSP/GUI/gui.h"
@@ -391,13 +390,13 @@ void LCD_ShowChar(uint16_t x,uint16_t y,uint16_t fc, uint16_t bc, uint8_t num,ui
 								mode:0-no overlying,1-overlying
  * @retvalue   :None
 ******************************************************************************/   	  
-void LCD_ShowString(uint16_t x,uint16_t y,uint8_t size,uint8_t *p,uint8_t mode)
+void LCD_ShowString(uint16_t x,uint16_t y,uint8_t size,uint8_t *p,uint16_t fc,uint16_t bc,uint8_t mode)
 {         
     while((*p<='~')&&(*p>=' '))//判断是不是非法字符!
     {   
 		if(x>(lcddev.width-1)||y>(lcddev.height-1)) 
 		return;     
-        LCD_ShowChar(x,y,POINT_COLOR,BACK_COLOR,*p,size,mode);
+        LCD_ShowChar(x,y,fc,bc,*p,size,mode);
         x+=size/2;
         p++;
     }  
@@ -429,7 +428,7 @@ uint32_t mypow(uint8_t m,uint8_t n)
 								size:the size of display number
  * @retvalue   :None
 ******************************************************************************/  			 
-void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size)
+void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint16_t fc,uint16_t bc,uint8_t size)
 {         	
 	uint8_t t,temp;
 	uint8_t enshow=0;						   
@@ -440,12 +439,12 @@ void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size)
 		{
 			if(temp==0)
 			{
-				LCD_ShowChar(x+(size/2)*t,y,POINT_COLOR,BACK_COLOR,' ',size,0);
+				LCD_ShowChar(x+(size/2)*t,y,fc,bc,' ',size,0);
 				continue;
 			}else enshow=1; 
 		 	 
 		}
-	 	LCD_ShowChar(x+(size/2)*t,y,POINT_COLOR,BACK_COLOR,temp+'0',size,0); 
+	 	LCD_ShowChar(x+(size/2)*t,y,fc,bc,temp+'0',size,0); 
 	}
 } 
 

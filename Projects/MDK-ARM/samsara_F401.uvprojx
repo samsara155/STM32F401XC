@@ -436,6 +436,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\Drivers\BSP\GUI\GUI.c</FilePath>
             </File>
+            <File>
+              <FileName>IIC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\IIC\IIC.c</FilePath>
+            </File>
+            <File>
+              <FileName>menu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\MENU\menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\KEY\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\OLED\oled.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -530,6 +550,16 @@
               <FileName>stm32f4xx_hal_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_hal_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_hal_i2c_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_i2c_ex.c</FilePath>
             </File>
           </Files>
         </Group>
